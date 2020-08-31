@@ -1,0 +1,21 @@
+.login {
+    display: grid;
+    background-color: black;
+    height: 100vh;
+    place-items: center; /* places items at the center*/
+  }
+  
+  .login > img { /*login > img we are using the classname login and pointing to the img tag */
+    height: 200px;
+  }
+  
+  .login > a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 99px;
+    font-weight: 800;
+    background-color: #1db954;
+  }
+  
