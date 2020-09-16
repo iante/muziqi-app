@@ -12,13 +12,11 @@ export const initialState = {
 
 const reducer = (state, action) => {
   console.log(action);
-    
-    //reducers listen to a particular action and executes based on that action
   switch (action.type) {
     case "SET_USER":
       return {
-        ...state, //keeps whatever is in the current state
-        user: action.user, //updates the user which was initially null
+        ...state, 
+        user: action.user, //updates user
       };
 
     case "SET_PLAYING":
