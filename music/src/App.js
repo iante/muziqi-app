@@ -10,18 +10,18 @@ const spotify = new SpotifyWebApi();
 
 function App() {
     
-    //defining variables in react we use useState
+ 
 
 //grabbing objects from the DataLayer.js
   const [{ token }, dispatch] = useDataLayerValue();
 
-     //useEffects is used to run a piece of code based on certain conditions
+    
   useEffect(() => {
     // Set token
     const hash = getTokenFromResponse();
-      // console.log('i have a token', hash);
-    window.location.hash = "";//removes the access token frm url, for security purposes
-    let _token = hash.access_token; //returns the access token once the page loads
+     
+    window.location.hash = "";//removes the access token frm url
+    let _token = hash.access_token; 
 
     if (_token) {
       spotify.setAccessToken(_token); //gives the access token to the spotify API
@@ -30,9 +30,6 @@ function App() {
         type: "SET_TOKEN",
         token: _token,
       });
-        
-        // setToken(_token); //storing the stripped token in a state setToken
-
         spotify.getPlaylist("37i9dQZF1DWWhBhYl3ZMvY").then((response) =>
         dispatch({
           type: "SET_DISCOVER_WEEKLY",
@@ -54,11 +51,10 @@ function App() {
 
       spotify.getMe().then((user) => { //gets the user who is logged in from the spotify API
           
-          /* once user is fetched by the function abover, the user is dispatched 
-to the data layer*/
+          /* dispatching user to data layer */
         dispatch({
           type: "SET_USER",
-          user,  //from the reducer.js
+          user,  
         });
       });
         
